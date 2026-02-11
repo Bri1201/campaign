@@ -12,7 +12,6 @@ body {
     background: radial-gradient(circle at 30% 20%, #1e3a8a, #0b1220 65%);
 }
 
-/* PAGE LAYOUT */
 .hero {
     min-height: 100vh;
     display: flex;
@@ -23,7 +22,7 @@ body {
     padding: 60px 20px;
 }
 
-/* FLOATING PARTICLES */
+/* PARTICLES */
 .particle {
     position: fixed;
     width: 6px;
@@ -39,7 +38,7 @@ body {
     to { transform: translateY(-10vh); }
 }
 
-/* TEXT */
+/* ✅ FIXED TYPEWRITER */
 .intro {
     font-size: 48px;
     font-weight: 800;
@@ -47,13 +46,15 @@ body {
     overflow: hidden;
     border-right: 3px solid #38bdf8;
     width: 0;
-    animation: typing 2.5s steps(26,end) forwards, blink .8s infinite;
+    animation: typing 2.2s steps(23,end) forwards;
 }
 
-@keyframes typing { to { width: 100%; } }
-@keyframes blink { 50% { border-color: transparent; } }
+@keyframes typing {
+    from { width: 0 }
+    to { width: 23ch }
+}
 
-/* GLOW UNDERLINE */
+/* UNDERLINE */
 .underline {
     width: 320px;
     height: 4px;
@@ -71,7 +72,6 @@ body {
 
 .subtitle {
     font-size: 22px;
-    line-height: 1.4;
     margin-bottom: 22px;
     color: #e5e7eb;
 }
@@ -87,24 +87,20 @@ body {
     border: 2px solid #38bdf8;
     border-radius: 10px;
     box-shadow: 0 0 18px rgba(56,189,248,0.7);
-    transition: .25s ease;
     margin-bottom: 6px;
-    position: relative;
-    z-index: 2; /* ensure above particles */
+    z-index: 2;
 }
 
 .cta-btn:hover {
     background: #38bdf8;
     color: #081018;
-    box-shadow: 0 0 28px rgba(56,189,248,1);
-    transform: translateY(-3px);
 }
 
-/* IMAGE — lifted but click-through */
+/* IMAGE */
 .photo {
     display: flex;
     justify-content: center;
-    margin-top: -140px;   /* lifted upward */
+    margin-top: -140px;
 }
 
 .photo img {
@@ -112,40 +108,37 @@ body {
     max-height: 900px;
     object-fit: contain;
     filter: drop-shadow(0 0 30px rgba(56,189,248,0.9));
-    pointer-events: none; /* ✅ prevents blocking button clicks */
+    pointer-events: none;
 }
 </style>
 </head>
 
 <body>
 
-<!-- particles -->
-<div class="particle" style="left:10%; animation-delay:0s"></div>
+<div class="particle" style="left:10%"></div>
 <div class="particle" style="left:35%; animation-delay:2s"></div>
 <div class="particle" style="left:60%; animation-delay:4s"></div>
-<div class="particle" style="left:80%; animation-delay:1s"></div>
 
 <div class="hero">
 
-    <div class="intro">Hi, I am Brinda Dhingra</div>
-    <div class="underline"></div>
+<div class="intro">Hi, I am Brinda Dhingra</div>
+<div class="underline"></div>
 
-    <div class="subtitle">
-        Standing for President<br>
-        Technology & Innovation Club
-    </div>
-
-    <a class="cta-btn"
-       href="https://wa.me/919650021699?text=Hi%20Brinda%20%E2%80%94%20saw%20your%20campaign%20and%20had%20to%20say%20hi.%20Rooting%20for%20innovation!%20%23BrindaForT%26I"
-       target="_blank">
-       CLICK HERE
-    </a>
-
-    <div class="photo">
-        <img src="brinda2.png" alt="Brinda Dhingra">
-    </div>
-
+<div class="subtitle">
+Standing for President<br>
+Technology & Innovation Club
 </div>
 
+<a class="cta-btn"
+href="https://wa.me/919650021699?text=Hi%20Brinda%20%E2%80%94%20saw%20your%20campaign%20and%20had%20to%20say%20hi.%20Rooting%20for%20innovation!%20%23BrindaForT%26I"
+target="_blank">
+CLICK HERE
+</a>
+
+<div class="photo">
+<img src="brinda2.png">
+</div>
+
+</div>
 </body>
 </html>
