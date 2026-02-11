@@ -9,23 +9,23 @@ body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
     color: white;
-    overflow: hidden;
+    background: radial-gradient(circle at 30% 20%, #1e3a8a, #0b1220 65%);
 }
 
-/* BLUE TECH BACKGROUND */
+/* PAGE LAYOUT */
 .hero {
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
-    padding: 0 10%;
-    background: radial-gradient(circle at 20% 30%, #1e3a8a, #0b1220 60%);
-    position: relative;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 20px;
 }
 
 /* FLOATING PARTICLES */
 .particle {
-    position: absolute;
+    position: fixed;
     width: 6px;
     height: 6px;
     background: #38bdf8;
@@ -39,31 +39,7 @@ body {
     to { transform: translateY(-10vh); }
 }
 
-/* IMAGE LEFT — CENTERED */
-.left {
-    flex: 1;
-    display: flex;
-    align-items: center;      /* vertical center */
-    justify-content: center;  /* horizontal center */
-}
-
-.left img {
-    height: 90vh;
-    max-height: 1000px;
-    object-fit: contain;
-    filter: drop-shadow(0 0 30px rgba(56,189,248,0.9));
-    transform: translate(-40px, -90px);  /* ← left, up */
-}
-
-
-
-/* TEXT RIGHT */
-.right {
-    flex: 1;
-    max-width: 520px;
-}
-
-/* TYPING LINE */
+/* TEXT */
 .intro {
     font-size: 48px;
     font-weight: 800;
@@ -72,23 +48,17 @@ body {
     border-right: 3px solid #38bdf8;
     width: 0;
     animation: typing 2.5s steps(26,end) forwards, blink .8s infinite;
-    margin-bottom: 18px;
 }
 
-@keyframes typing {
-    to { width: 100%; }
-}
-
-@keyframes blink {
-    50% { border-color: transparent; }
-}
+@keyframes typing { to { width: 100%; } }
+@keyframes blink { 50% { border-color: transparent; } }
 
 /* GLOW UNDERLINE */
 .underline {
     width: 320px;
     height: 4px;
     background: #38bdf8;
-    margin: 18px 0 26px 0;
+    margin: 14px auto 20px auto;
     box-shadow: 0 0 8px #38bdf8;
     animation: pulse 2s infinite;
 }
@@ -102,7 +72,7 @@ body {
 .subtitle {
     font-size: 22px;
     line-height: 1.4;
-    margin-bottom: 36px;
+    margin-bottom: 22px;
     color: #e5e7eb;
 }
 
@@ -118,6 +88,9 @@ body {
     border-radius: 10px;
     box-shadow: 0 0 18px rgba(56,189,248,0.7);
     transition: .25s ease;
+    margin-bottom: 6px;
+    position: relative;
+    z-index: 2; /* ensure above particles */
 }
 
 .cta-btn:hover {
@@ -127,26 +100,19 @@ body {
     transform: translateY(-3px);
 }
 
-/* MOBILE */
-@media (max-width: 900px) {
-    .hero {
-        flex-direction: column;
-        text-align: center;
-        padding: 40px 6%;
-    }
+/* IMAGE — lifted but click-through */
+.photo {
+    display: flex;
+    justify-content: center;
+    margin-top: -140px;   /* lifted upward */
+}
 
-    .left img {
-        height: 55vh;
-        margin-bottom: 20px;
-    }
-
-    .intro {
-        font-size: 34px;
-    }
-
-    .subtitle {
-        font-size: 18px;
-    }
+.photo img {
+    height: 70vh;
+    max-height: 900px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 30px rgba(56,189,248,0.9));
+    pointer-events: none; /* ✅ prevents blocking button clicks */
 }
 </style>
 </head>
@@ -155,33 +121,28 @@ body {
 
 <!-- particles -->
 <div class="particle" style="left:10%; animation-delay:0s"></div>
-<div class="particle" style="left:30%; animation-delay:2s"></div>
-<div class="particle" style="left:55%; animation-delay:4s"></div>
-<div class="particle" style="left:70%; animation-delay:1s"></div>
-<div class="particle" style="left:85%; animation-delay:3s"></div>
+<div class="particle" style="left:35%; animation-delay:2s"></div>
+<div class="particle" style="left:60%; animation-delay:4s"></div>
+<div class="particle" style="left:80%; animation-delay:1s"></div>
 
 <div class="hero">
 
-    <!-- IMAGE -->
-    <div class="left">
-        <img src="brinda2.png" alt="Brinda Dhingra">
+    <div class="intro">Hi, I am Brinda Dhingra</div>
+    <div class="underline"></div>
+
+    <div class="subtitle">
+        Standing for President<br>
+        Technology & Innovation Club
     </div>
 
-    <!-- TEXT -->
-    <div class="right">
-        <div class="intro">Hi, I am Brinda Dhingra</div>
-        <div class="underline"></div>
+    <a class="cta-btn"
+       href="https://wa.me/919650021699?text=Hi%20Brinda%20%E2%80%94%20saw%20your%20campaign%20and%20had%20to%20say%20hi.%20Rooting%20for%20innovation!%20%23BrindaForT%26I"
+       target="_blank">
+       CLICK HERE
+    </a>
 
-        <div class="subtitle">
-            Standing for President<br>
-            Technology & Innovation Club
-        </div>
-
-        <a class="cta-btn"
-        href="https://wa.me/919650021699?text=Hi%20Brinda%20-%20I%20saw%20your%20Technology%20%26%20Innovation%20Club%20President%20announcement%20and%20wanted%20to%20connect"
-        target="_blank">
-        CLICK HERE
-        </a>
+    <div class="photo">
+        <img src="brinda2.png" alt="Brinda Dhingra">
     </div>
 
 </div>
