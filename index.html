@@ -5,93 +5,171 @@
 <title>Brinda Dhingra — Campaign</title>
 
 <style>
-    body {
-        margin: 0;
-        font-family: Arial, Helvetica, sans-serif;
-        color: white;
-        background: #0b1220;
-    }
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    overflow: hidden;
+}
 
+/* BLUE TECH BACKGROUND */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10%;
+    background: radial-gradient(circle at 20% 30%, #1e3a8a, #0b1220 60%);
+    position: relative;
+}
+
+/* FLOATING PARTICLES */
+.particle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: #38bdf8;
+    border-radius: 50%;
+    opacity: 0.25;
+    animation: float 12s linear infinite;
+}
+
+@keyframes float {
+    from { transform: translateY(100vh); }
+    to { transform: translateY(-10vh); }
+}
+
+/* IMAGE LEFT — CENTERED */
+.left {
+    flex: 1;
+    display: flex;
+    align-items: center;      /* vertical center */
+    justify-content: center;  /* horizontal center */
+}
+
+.left img {
+    height: 90vh;
+    max-height: 1000px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 30px rgba(56,189,248,0.9));
+    transform: translate(-40px, -90px);  /* ← left, up */
+}
+
+
+
+/* TEXT RIGHT */
+.right {
+    flex: 1;
+    max-width: 520px;
+}
+
+/* TYPING LINE */
+.intro {
+    font-size: 48px;
+    font-weight: 800;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid #38bdf8;
+    width: 0;
+    animation: typing 2.5s steps(26,end) forwards, blink .8s infinite;
+    margin-bottom: 18px;
+}
+
+@keyframes typing {
+    to { width: 100%; }
+}
+
+@keyframes blink {
+    50% { border-color: transparent; }
+}
+
+/* GLOW UNDERLINE */
+.underline {
+    width: 320px;
+    height: 4px;
+    background: #38bdf8;
+    margin: 18px 0 26px 0;
+    box-shadow: 0 0 8px #38bdf8;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 6px #38bdf8; }
+    50% { box-shadow: 0 0 22px #38bdf8; }
+    100% { box-shadow: 0 0 6px #38bdf8; }
+}
+
+.subtitle {
+    font-size: 22px;
+    line-height: 1.4;
+    margin-bottom: 36px;
+    color: #e5e7eb;
+}
+
+/* BUTTON */
+.cta-btn {
+    display: inline-block;
+    padding: 16px 32px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #7dd3fc;
+    text-decoration: none;
+    border: 2px solid #38bdf8;
+    border-radius: 10px;
+    box-shadow: 0 0 18px rgba(56,189,248,0.7);
+    transition: .25s ease;
+}
+
+.cta-btn:hover {
+    background: #38bdf8;
+    color: #081018;
+    box-shadow: 0 0 28px rgba(56,189,248,1);
+    transform: translateY(-3px);
+}
+
+/* MOBILE */
+@media (max-width: 900px) {
     .hero {
-        height: 100vh;
-        background-image: url("campaign-bg.png"); /* <-- put your image filename here */
-        background-size: cover;
-        background-position: center;
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        padding-left: 8%;
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 6%;
     }
 
-    .content {
-        max-width: 600px;
-        backdrop-filter: blur(2px);
+    .left img {
+        height: 55vh;
+        margin-bottom: 20px;
     }
 
-    .hi {
-        color: #7dd3fc;
-        letter-spacing: 2px;
-        font-size: 18px;
-        margin-bottom: 10px;
-    }
-
-    .name {
-        font-size: 56px;
-        font-weight: 800;
-        margin: 0;
-        line-height: 1.05;
-    }
-
-    .underline {
-        width: 260px;
-        height: 4px;
-        background: #38bdf8;
-        margin: 14px 0 22px 0;
-        box-shadow: 0 0 12px #38bdf8;
+    .intro {
+        font-size: 34px;
     }
 
     .subtitle {
-        font-size: 22px;
-        line-height: 1.4;
-        color: #e5e7eb;
-        margin-bottom: 36px;
-    }
-
-    .cta-btn {
-        display: inline-block;
-        padding: 16px 28px;
         font-size: 18px;
-        font-weight: bold;
-        color: #7dd3fc;
-        text-decoration: none;
-        border: 2px solid #38bdf8;
-        border-radius: 8px;
-        box-shadow: 0 0 14px rgba(56,189,248,0.6);
-        transition: all 0.25s ease;
     }
-
-    .cta-btn:hover {
-        background: #38bdf8;
-        color: #081018;
-        box-shadow: 0 0 22px rgba(56,189,248,1);
-        transform: translateY(-2px);
-    }
-
-    @media (max-width: 700px) {
-        .name { font-size: 38px; }
-        .subtitle { font-size: 18px; }
-        .hero { padding-left: 5%; }
-    }
+}
 </style>
 </head>
 
 <body>
 
-<div class="hero">
-    <div class="content">
-        <div class="hi">HI.</div>
+<!-- particles -->
+<div class="particle" style="left:10%; animation-delay:0s"></div>
+<div class="particle" style="left:30%; animation-delay:2s"></div>
+<div class="particle" style="left:55%; animation-delay:4s"></div>
+<div class="particle" style="left:70%; animation-delay:1s"></div>
+<div class="particle" style="left:85%; animation-delay:3s"></div>
 
-        <h1 class="name">BRINDA DHINGRA</h1>
+<div class="hero">
+
+    <!-- IMAGE -->
+    <div class="left">
+        <img src="brinda.png" alt="Brinda Dhingra">
+    </div>
+
+    <!-- TEXT -->
+    <div class="right">
+        <div class="intro">Hi, I am Brinda Dhingra</div>
         <div class="underline"></div>
 
         <div class="subtitle">
@@ -100,11 +178,12 @@
         </div>
 
         <a class="cta-btn"
-           href="https://wa.me/919650021699?text=Hi%20Brinda%20-%20I%20saw%20your%20Technology%20%26%20Innovation%20Club%20President%20announcement%20and%20wanted%20to%20connect"
-           target="_blank">
-           CLICK HERE
+        href="https://wa.me/919650021699?text=Hi%20Brinda%20-%20I%20saw%20your%20Technology%20%26%20Innovation%20Club%20President%20announcement%20and%20wanted%20to%20connect"
+        target="_blank">
+        CLICK HERE
         </a>
     </div>
+
 </div>
 
 </body>
