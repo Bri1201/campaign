@@ -8,18 +8,16 @@
 body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
-    color: white;
     background: radial-gradient(circle at 30% 20%, #1e3a8a, #0b1220 65%);
 }
 
+/* CENTER LAYOUT */
 .hero {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    text-align: center;
-    padding: 60px 20px;
 }
 
 /* PARTICLES */
@@ -38,56 +36,19 @@ body {
     to { transform: translateY(-10vh); }
 }
 
-/* ✅ FIXED TYPEWRITER */
-.intro {
-    font-size: 48px;
-    font-weight: 800;
-    white-space: nowrap;
-    overflow: hidden;
-    border-right: 3px solid #38bdf8;
-    width: 0;
-    animation: typing 2.2s steps(23,end) forwards;
-}
-
-@keyframes typing {
-    from { width: 0 }
-    to { width: 23ch }
-}
-
-/* UNDERLINE */
-.underline {
-    width: 320px;
-    height: 4px;
-    background: #38bdf8;
-    margin: 14px auto 20px auto;
-    box-shadow: 0 0 8px #38bdf8;
-    animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-    0% { box-shadow: 0 0 6px #38bdf8; }
-    50% { box-shadow: 0 0 22px #38bdf8; }
-    100% { box-shadow: 0 0 6px #38bdf8; }
-}
-
-.subtitle {
-    font-size: 22px;
-    margin-bottom: 22px;
-    color: #e5e7eb;
-}
-
 /* BUTTON */
 .cta-btn {
     display: inline-block;
-    padding: 16px 32px;
-    font-size: 18px;
+    padding: 26px 56px;
+    font-size: 28px;
     font-weight: bold;
     color: #7dd3fc;
     text-decoration: none;
     border: 2px solid #38bdf8;
-    border-radius: 10px;
-    box-shadow: 0 0 18px rgba(56,189,248,0.7);
-    margin-bottom: 6px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(56,189,248,0.8);
+    margin-bottom: 24px;
+    transition: 0.25s;
     z-index: 2;
 }
 
@@ -96,38 +57,30 @@ body {
     color: #081018;
 }
 
-/* IMAGE */
-.photo {
+/* VIDEO */
+.video-wrap {
     display: flex;
     justify-content: center;
-    margin-top: -140px;
 }
 
-.photo img {
-    height: 70vh;
-    max-height: 900px;
-    object-fit: contain;
+.video-wrap video {
+    height: 72vh;
+    max-height: 920px;
+    border-radius: 16px;
     filter: drop-shadow(0 0 30px rgba(56,189,248,0.9));
-    pointer-events: none;
 }
 </style>
 </head>
 
 <body>
 
+<!-- floating particles -->
 <div class="particle" style="left:10%"></div>
-<div class="particle" style="left:35%; animation-delay:2s"></div>
-<div class="particle" style="left:60%; animation-delay:4s"></div>
+<div class="particle" style="left:30%; animation-delay:2s"></div>
+<div class="particle" style="left:55%; animation-delay:4s"></div>
+<div class="particle" style="left:80%; animation-delay:1s"></div>
 
 <div class="hero">
-
-<div class="intro">Hi, I am Brinda Dhingra</div>
-<div class="underline"></div>
-
-<div class="subtitle">
-Standing for President<br>
-Technology & Innovation Club
-</div>
 
 <a class="cta-btn"
 href="https://wa.me/919650021699?text=Hi%20Brinda%20%E2%80%94%20saw%20your%20campaign%20and%20had%20to%20say%20hi.%20Rooting%20for%20innovation!%20%23BrindaForT%26I"
@@ -135,10 +88,24 @@ target="_blank">
 CLICK HERE
 </a>
 
-<div class="photo">
-<img src="brinda2.png">
+<div class="video-wrap">
+  <video id="campaignVideo" autoplay muted loop playsinline controls>
+      <source src="brinda-video.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+  </video>
 </div>
 
 </div>
+
+<script>
+const vid = document.getElementById("campaignVideo");
+
+/* Unmute + ensure play on first click anywhere */
+document.addEventListener("click", () => {
+    vid.muted = false;
+    vid.play();
+}, { once: true });
+</script>
+
 </body>
 </html>
